@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 # Duckhunt
 Your app description, here.
+# duckhunt
