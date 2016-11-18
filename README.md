@@ -1,8 +1,8 @@
 # README
-https://codeship.com/projects/e8b357e0-76c1-0134-9322-463148144e7e/status?branch=master
-[![Coverage Status](https://coveralls.io/repos/github/RusselViola/duckhunt/badge.svg?branch=master)](https://coveralls.io/github/RusselViola/duckhunt?branch=master)
-[![Code Climate](https://codeclimate.com/github/RusselViola/duckhunt/badges/gpa.svg)](https://codeclimate.com/github/RusselViola/duckhunt)
-[![Issue Count](https://codeclimate.com/github/RusselViola/duckhunt/badges/issue_count.svg)](https://codeclimate.com/github/RusselViola/duckhunt)
+![BuildStatus](https://codeship.com/projects/e8b357e0-76c1-0134-9322-463148144e7e/status?branch=master)
+![CoverageStatus](https://coveralls.io/repos/github/RusselViola/duckhunt.png)
+![CodeClimate](https://codeclimate.com/github/RusselViola/duckhunt/badges/gpa.svg)](https://codeclimate.com/github/RusselViola/duckhunt)
+![IssueCount](https://codeclimate.com/github/RusselViola/duckhunt/badges/issue_count.svg)](https://codeclimate.com/github/RusselViola/duckhunt)
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
