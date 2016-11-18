@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'listen'
 gem 'dotenv-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
