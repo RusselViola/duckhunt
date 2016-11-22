@@ -10,11 +10,15 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
-    <footer>
-      <p>
-        Created By Russel Viola
-      </p>
-    </footer>
+
+    <div class="container">
+
+      <%= yield %>
+      <footer>
+        <p>
+          Created By Russel Viola
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
