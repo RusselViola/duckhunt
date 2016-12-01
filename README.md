@@ -25,6 +25,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# Duckhunt
+# duckhunt
 Your app description, here.
 # duckhunt
