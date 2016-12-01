@@ -1,25 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "listings/index", type: :view do
-  before(:each) do
-    assign(:listings, [
-      Listing.create!(
-        :name => "Name",
-        :description => "MyText",
-        :price => "9.99"
-      ),
-      Listing.create!(
-        :name => "Name",
-        :description => "MyText",
-        :price => "9.99"
-      )
-    ])
-  end
+feature "visits listings/index:" do
+  let!(:listing1) { FactoryGirl.create(:listing) }
+  let!(:listing2) { FactoryGirl.create(:listing) }
+  let!(:listing3) { FactoryGirl.create(:listing) }
 
-  it "renders a list of listings" do
-    render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "9.99".to_s, :count => 2
+  scenario "it shows a list of listings" do
+    visit root_path
+
+    expect(page).to have_content(listing1.name)
+    expect(page).to have_content(listing1.price)
+    expect(page).to have_content(listing2.name)
+    expect(page).to have_content(listing2.price)
+    expect(page).to have_content(listing3.name)
+    expect(page).to have_content(listing3.price)
   end
 end
