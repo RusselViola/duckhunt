@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :listing do
-    name "MyString"
-    description "MyText"
-    price "9.99"
+    sequence(:name) { |n| "MyStr#{n}ng" }
+    sequence(:description) { |n| "MyT#{n}xt" }
+    sequence(:price) { |n| "9.#{n}9" }
   end
 end
