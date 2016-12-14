@@ -9,15 +9,19 @@ class SessionsController < ApplicationController
       user.increment! :sign_in_count
       user.touch :last_signed_in_at
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to listings_path
     end
   end
 
   def destroy
-    user.increment! :sign_in_count
-    user.touch :last_signed_in_at
-    session[:user_id] =  user.id
+    session[:user_id] = nil
+    session[:auth] = nil
+    flash[:success] = 'Signed out.'
     redirect_to root_path
+  end
+
+  def new
+    redirect_to listings_path if user_signed_in?
   end
 
 end

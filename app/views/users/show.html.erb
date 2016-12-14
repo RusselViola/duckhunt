@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="callout">
+      <h1 class="text-center">
+        <%= @user.name %>
+      </h1>
+      <p>
+        <strong>Member Since:</strong>
+        <%= distance_of_time_in_words_to_now(@user.created_at) %>
+        ago
+      </p>
+      <p>
+        <strong>Sign In Count:</strong>
+        <%= @user.sign_in_count %>
+      </p>
+      <p>
+        <strong>Last Sign In:</strong>
+        <%= distance_of_time_in_words_to_now(@user.last_signed_in_at) %>
+        ago
+      </p>
+    </div>
+  </div>
+</div>

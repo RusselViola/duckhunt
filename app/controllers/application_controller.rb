@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     if !user_signed_in?
       flash[:warning] = 'You need to sign in before continuing.'
-      redirect_to new_session_parth
+      redirect_to root_path
     end
   end
 

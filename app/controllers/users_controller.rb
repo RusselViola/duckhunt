@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @user.touch :last_signed_in_at
       @user.increment! :sign_in_count
       flash[:success] = 'Registered successfully'
-      redirect_to root_path
+      redirect_to listings_path
     else
       flash[:alert] = 'There was a problem registering'
       render :new
@@ -18,7 +18,21 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(email: @user.)
+    @user = User.new(oauth_uid: session[:auth]['uid'])
+  end
+
+  def show
+    @user = User.find(params[:id])
+    unless @user == current_user
+      flash[:warning] = "You are not authorized to view this record."
+      redirect_to listings_path
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name)
   end
 
 end
