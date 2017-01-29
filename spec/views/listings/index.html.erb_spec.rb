@@ -6,7 +6,7 @@ xfeature "visits listings/index:" do
   let!(:listing3) { FactoryGirl.create(:listing) }
 
   scenario "it shows a list of listings" do
-    visit root_path
+    visit listings_path
 
     expect(page).to have_content(listing1.name)
     expect(page).to have_content(listing1.price)
