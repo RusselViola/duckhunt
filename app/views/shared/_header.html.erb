@@ -22,6 +22,10 @@
           <% if user_signed_in? %>
           <li> <%= link_to current_user.name, current_user %> </li>
           <li> <%= link_to "Sign Out", session_path(:current), method: :delete %> </li>
+          <% else %>
+          <%= link_to auth_path(:facebook), class: "btn btn-primary" do %>
+            Sign In With Facebook
+          <% end %>
         <% end %>
       </ul>
       </div><!-- /.navbar-collapse -->
