@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'signin', to: 'sessions#new', as: 'signin'
 
+  get 'seller' => 'listings#seller'
+
   root 'listings#index'
 
   resources :auth, only: :show
