@@ -37,3 +37,30 @@ body {
   h5 { font-size: 25px; }
   p { font-size: 18px; }
 }
+
+.caption {
+  h3 {
+    font-size: 17px;
+    margin: 0px;
+  }
+  p {
+    font-size: 15px;
+    margin: 0px;
+  }
+}
+
+.jumbotron {
+  background-image: -webkit-linear-gradient(left,
+    rgba(0,0,0,0.9) 0%,
+    rgba(0,0,0,0) 20%,
+    rgba(0,0,0,0) 80%,
+    rgba(0,0,0,0.9) 100%
+    ),
+    url('cropped-ducks-in-a-row-banner.jpg');
+  background-size: cover;
+  h1, h2 {
+    font-family: guardian-egyptt, georgia, seriff;
+    color: #F5F5F1;
+    text-shadow: -3px 0 #019285, 0 3px #019285, 3px 0 #019285, 0 -3px #019285;
+  }
+}
