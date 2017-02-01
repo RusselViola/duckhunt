@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131232558) do
+ActiveRecord::Schema.define(version: 20170131235731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20170131232558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "zipcode",    null: false
+    t.integer  "listing_id", null: false
+    t.integer  "seller_id",  null: false
+    t.integer  "buyer_id"
     t.index ["city"], name: "index_orders_on_city", using: :btree
     t.index ["state"], name: "index_orders_on_state", using: :btree
     t.index ["zipcode"], name: "index_orders_on_zipcode", using: :btree
