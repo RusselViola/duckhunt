@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :orders
   get 'pages/about'
   get 'pages/contact'
   get 'auth/:provider/callback', to: 'sessions#create'
