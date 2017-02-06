@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -20,10 +21,14 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
-    @order.buyer_id = current_user
+    @seller = @listing.user
+
+    @order.listing_id = @listing.id
+    @order.buyer_id = current_user.id
+    @order.seller_id = @seller.id
 
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
+      redirect_to root_url, notice: 'Order was successfully created.'
     else
       render :new
     end
