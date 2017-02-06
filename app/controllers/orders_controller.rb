@@ -11,19 +11,9 @@ class OrdersController < ApplicationController
     @orders = Order.all.where(buyer: current_user).order('created_at DESC')
   end
 
-  def index
-    @orders = Order.all
-  end
-
-  def show
-  end
-
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
-  end
-
-  def edit
   end
 
   def create
@@ -40,19 +30,6 @@ class OrdersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    if @order.update(order_params)
-      redirect_to @order, notice: 'Order was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @order.destroy
-    redirect_to orders_url, notice: 'Order was successfully destroyed.'
   end
 
   private

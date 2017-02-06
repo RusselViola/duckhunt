@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:destroy, :new]
 
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
   resources :users
 
