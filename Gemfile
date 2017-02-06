@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 gem 'omniauth-facebook'
+gem 'stripe'
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
