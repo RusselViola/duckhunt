@@ -18,7 +18,7 @@ RSpec.describe "orders/index", type: :view do
     ])
   end
 
-  it "renders a list of orders" do
+  xit "renders a list of orders" do
     render
     assert_select "tr>td", :text => "Address".to_s, :count => 2
     assert_select "tr>td", :text => "City".to_s, :count => 2

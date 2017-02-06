@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :orders
   get 'pages/about'
   get 'pages/contact'
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -12,7 +11,10 @@ Rails.application.routes.draw do
 
   resources :auth, only: :show
   resources :sessions, only: [:destroy, :new]
-  resources :listings
+  
+  resources :listings do
+    resources :orders
+  end
   resources :users
 
 end
