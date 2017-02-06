@@ -1,0 +1,28 @@
+require 'rails_helper'
+
+RSpec.describe "orders/index", type: :view do
+  before(:each) do
+    assign(:orders, [
+      Order.create!(
+        :address => "Address",
+        :city => "City",
+        :state => "State",
+        :zip_code => "Zip Code"
+      ),
+      Order.create!(
+        :address => "Address",
+        :city => "City",
+        :state => "State",
+        :zip_code => "Zip Code"
+      )
+    ])
+  end
+
+  xit "renders a list of orders" do
+    render
+    assert_select "tr>td", :text => "Address".to_s, :count => 2
+    assert_select "tr>td", :text => "City".to_s, :count => 2
+    assert_select "tr>td", :text => "State".to_s, :count => 2
+    assert_select "tr>td", :text => "Zip Code".to_s, :count => 2
+  end
+end
