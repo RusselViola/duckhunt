@@ -25,8 +25,21 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
 
+    token = params[:stripeToken]
+
+    begin
+      charge = Stripe::Charge.create(
+        amount: (@listing.price * 100).floor,
+        currency: 'usd',
+        card: token
+        )
+      flash[:notice] = 'Thanks for ordering!'
+    rescue Stripe::CardError => e
+      flash[:danger] = e.message
+    end
+
     if @order.save
-      redirect_to root_url, notice: 'Order was successfully created.'
+      redirect_to root_url
     else
       render :new
     end
