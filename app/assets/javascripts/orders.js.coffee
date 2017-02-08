@@ -11,31 +11,15 @@ payment =
 
   processCard: ->
     card =
-      number: $('card_number').val()
+      number: $('#card_number').val()
       cvc: $('#card_code').val()
-      expMonth: $('card_month').val()
-      expYear: $('card_year').val()
+      expMonth: $('#card_month').val()
+      expYear: $('#card_year').val()
     Stripe.createToken(card, payment.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     if status == 200
       alert(response.id)
     else
-      alert(response.error.message)
-
-
-
-
-
-
-
-  #     Stripe.card.createToken($('#new_order'), payment.handleStripeResponse)
-  #     false
-  #
-  # handleStripeResponse: (status, response) ->
-  #   if status == 200
-  #     $('#new_order').append($('<input type="hidden" name="stripeToken" />').val(response.id))
-  #     $('#new_order')[0].submit()
-  #   else
-  #     $('#stripe_error').text(response.error.message).show()
-  #     $('input[type=submit]').attr('disabled', false)
+      $('#stripe_error').text(response.error.message).show()
+      $('input[type=submit]').attr('disabled', false)
