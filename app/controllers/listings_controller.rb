@@ -24,6 +24,17 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    token = params[:stripeToken]
+
+    if current_user.account.blank?
+      account = Stripe::Account.create(
+        bank_account: token,
+        country: 'US',
+        managed: true
+        )
+    end
+    current_user.account = account.id
+    current_user.save
 
     if @listing.save
       redirect_to @listing, notice: 'Listing was successfully created.'

@@ -5,9 +5,10 @@ jQuery ->
 listing =
   setupForm: ->
     $('#new_listing').submit ->
-      $('input[type=submit]').attr('disabled', true)
-      listing.processAccount()
-      false
+      if $('input').length > 6
+        $('input[type=submit]').attr('disabled', true)
+        listing.processAccount()
+        false
 
   processAccount: ->
     account =
