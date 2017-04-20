@@ -22,10 +22,11 @@ class ListingsController < ApplicationController
   end
 
   def create
+
     @listing = Listing.new(listing_params)
     @listing.user = current_user
     token = params[:stripeToken]
-
+    
     if current_user.account.blank?
       account = Stripe::Account.create(
         bank_account: token,
@@ -33,7 +34,6 @@ class ListingsController < ApplicationController
         managed: true
         )
     end
-    current_user.account = account.id
     current_user.save
 
     if @listing.save
